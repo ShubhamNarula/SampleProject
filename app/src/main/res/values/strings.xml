@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sample App</string>
+    <string name ="please_wait">Please wait..</string>
+    <string name="welcome">WELCOME</string>
+</resources>
