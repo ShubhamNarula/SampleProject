@@ -88,7 +88,7 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences:1.0.0-beta01")
 
 
-    //DataBinding
+    //DataBindinggg
     def life_versions = "1.1.1"
     implementation "android.arch.lifecycle:extensions:$life_versions"
     //noinspection LifecycleAnnotationProcessorWithJava8
