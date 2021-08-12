@@ -71,7 +71,7 @@ fun ImageView.loadImg(url: String, activity: Context) {
 
 
 
-//for simple image
+//for simple images
 fun ImageView.imageLoad(url: String, activity: Context) {
     Glide.with(activity)
         .load(url)
