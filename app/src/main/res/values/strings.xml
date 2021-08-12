@@ -2,4 +2,8 @@
     <string name="app_name">Sample App</string>
     <string name ="please_wait">Please wait..</string>
     <string name="welcome">WELCOME</string>
+    <string name="profile">Profile</string>
+    <string name="close">Close</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="take_photo">Take Photo</string>
 </resources>

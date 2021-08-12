@@ -15,6 +15,7 @@ object ApiModule {
     @Provides
     fun provideMainRepository(
         retrofit: ApiInterface,
+
     ): BaseRepository {
         return BaseRepository(retrofit)
     }

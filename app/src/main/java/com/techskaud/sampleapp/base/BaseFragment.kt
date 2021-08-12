@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.Fragment
 import com.techskaud.sampleapp.R
-
+import com.techskaud.sampleapp.utilities.Utils
 
 
 abstract  class BaseFragment : Fragment() {
@@ -37,6 +37,9 @@ abstract  class BaseFragment : Fragment() {
      */
     public abstract fun onCreateView();
 
+    private var mContent: View? = null
+
+
 
     /**************************************  Fragment Lifecycle Methods  ************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,21 +47,41 @@ abstract  class BaseFragment : Fragment() {
         mActivity = activity as BaseActivity
     }
 
+
+    private var rootView: View? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view= inflater.inflate(getLayoutID(), container, false)
+        if(rootView == null) {
+            rootView = inflater.inflate(getLayoutID(), container, false)
+        } else{
+            (rootView?.parent as? ViewGroup)?.removeView(rootView)
+        }
+        return rootView
+    }
 
-        return view
+    var hasInitializedRootView = false
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mContent = view
+        if(!hasInitializedRootView) {
+            hasInitializedRootView = true
+            onCreateView()
+        }
     }
 
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        onCreateView()
+    override fun onPause() {
+        super.onPause()
+        activity?.let { Utils.hideKeyboard(it) }
 
+    }
+
+    override fun onStop() {
+        super.onStop()
+        activity?.let { Utils.hideKeyboard(it) }
     }
 
 

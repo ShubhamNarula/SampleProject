@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.techskaud.sampleapp.fragment.SplashFragment"
-        android:label="SplashFragment" >
+        android:label="SplashFragment"
+        tools:layout="@layout/splash_fragment"
+        >
         <action
             android:id="@+id/action_splashFragment_to_dataFragment"
-            app:destination="@id/dataFragment" />
+            app:destination="@id/dataFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            app:enterAnim="@anim/pop_enter"
+            app:exitAnim="@anim/exit"
+            />
     </fragment>
     <fragment
         android:id="@+id/dataFragment"
@@ -18,10 +27,28 @@
         android:label="DataFragment" >
         <action
             android:id="@+id/action_dataFragment_to_detailsViewFragment"
-            app:destination="@id/detailsViewFragment" />
+            app:destination="@id/detailsViewFragment"
+            app:enterAnim="@anim/pop_enter"
+            app:exitAnim="@anim/exit"/>
     </fragment>
     <fragment
         android:id="@+id/detailsViewFragment"
         android:name="com.techskaud.sampleapp.fragment.DetailsViewFragment"
-        android:label="DetailsViewFragment" />
+        android:label="DetailsViewFragment" >
+        <action
+            android:id="@+id/action_detailsViewFragment_to_photosFragment"
+            app:destination="@id/photosFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photosFragment"
+        android:name="com.techskaud.sampleapp.fragment.PhotosFragment"
+        android:label="PhotosFragment" >
+        <action
+            android:id="@+id/action_photosFragment_to_userProfile"
+            app:destination="@id/userProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.techskaud.sampleapp.fragment.UserProfile"
+        android:label="UserProfile" />
 </navigation>

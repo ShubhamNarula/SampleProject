@@ -25,6 +25,16 @@ abstract class BaseActivity : AppCompatActivity() {
         onLayoutCreated()
 
 
+
+
+
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        // pass activity's  result to the fragments
+        val fragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        fragment?.onActivityResult(requestCode, resultCode, data)
+
     }
 
 }
