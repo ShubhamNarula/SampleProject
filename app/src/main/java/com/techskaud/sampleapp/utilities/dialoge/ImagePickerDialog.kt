@@ -18,7 +18,9 @@ import androidx.fragment.app.Fragment
 class ImagePickerDialog () : DialogFragment(), View.OnClickListener {
 
     companion object {
-        fun newInstance(): ImagePickerDialog {
+        lateinit var buttonClickCallBack : (Int) ->Unit
+        fun newInstance(buttonClickCallBack: (Int) -> Unit): ImagePickerDialog {
+            this.buttonClickCallBack=buttonClickCallBack
             return ImagePickerDialog()
         }
     }
@@ -71,17 +73,19 @@ class ImagePickerDialog () : DialogFragment(), View.OnClickListener {
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.txt_dialog_take_photo -> {
-                val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                try {
-                    activity?.startActivityForResult(takePictureIntent, Constants.REQUEST_CAMERA)
-                } catch (e: ActivityNotFoundException) {
-                    // display error state to the user
-                }
+//                val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+//                try {
+//                    activity?.startActivityForResult(takePictureIntent, Constants.REQUEST_CAMERA)
+//                } catch (e: ActivityNotFoundException) {
+//                    // display error state to the user
+//                }
+                buttonClickCallBack(Constants.REQUEST_CAMERA)
                 dismiss()
             }
             R.id.txt_dialog_choose_photo -> {
-                val i = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                activity?.startActivityForResult(i, Constants.REQUEST_GALLERY)
+                buttonClickCallBack(Constants.REQUEST_GALLERY)
+//                val i = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//                activity?.startActivityForResult(i, Constants.REQUEST_GALLERY)
                 dismiss()
             }
         }

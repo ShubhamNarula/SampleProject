@@ -49,6 +49,6 @@
     </fragment>
     <fragment
         android:id="@+id/userProfile"
-        android:name="com.techskaud.sampleapp.fragment.UserProfile"
+        android:name="com.techskaud.sampleapp.fragment.user_profile.UserProfile"
         android:label="UserProfile" />
 </navigation>

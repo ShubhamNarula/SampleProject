@@ -100,5 +100,11 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:4.11.0"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    //circle image view
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Dimensions
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+
 
 }
