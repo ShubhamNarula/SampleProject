@@ -89,12 +89,12 @@ object Utils {
     }
 
     /** Positive Alerter*/
-    fun Context.showNegativeAlerter(message: String) {
-        Snackbar.make(
-            (this as Activity).findViewById(android.R.id.content),
-            message,
-            Snackbar.LENGTH_SHORT
-        ).show()
-
-    }
+//    fun Context.showNegativeAlerter(message: String) {
+//        Snackbar.make(
+//            (BaseApplication.getContext()).findViewById(android.R.id.content),
+//            message,
+//            Snackbar.LENGTH_SHORT
+//        ).show()
+//
+//    }
 }

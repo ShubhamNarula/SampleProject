@@ -20,6 +20,7 @@ import com.template.permissionsutil.PermissionsUtil.arePermissionsGranted
 import com.template.permissionsutil.PermissionsUtil.requestFragmentPermission
 import com.template.validations.Validation
 import com.wh.woohoo.utils.extensionFunction.loadImg
+import com.wh.woohoo.utils.extensionFunction.navigateWithId
 import kotlinx.android.synthetic.main.userprofile_fragment.*
 
 class UserProfile : BaseFragment(), View.OnClickListener {
@@ -76,13 +77,16 @@ class UserProfile : BaseFragment(), View.OnClickListener {
                 }
             }
             R.id.btSubmit ->{
-                val validation = Validation.create(mActivity!!).apply {
+                requireView().navigateWithId(R.id.action_userProfile_to_loginFragment)
+               /*
+               ~~~~~~validation code
+               val validation = Validation.create(mActivity!!).apply {
                     isEmpty(et_first_name.text.toString(), context?.getString(R.string.enter_first_name) ?: "")
 
                 }
                 if (validation.isValid()) {
                     //hit api
-                }
+                }*/
             }
         }
     }

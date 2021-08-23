@@ -1,7 +1,9 @@
 package com.template.validations
 
 import android.content.Context
-import com.techskaud.sampleapp.utilities.Utils.showNegativeAlerter
+import android.widget.Toast
+
+//import com.techskaud.sampleapp.utilities.Utils.showNegativeAlerter
 
 class Validation(private val baseContext: Context?) {
     private var validators: ArrayList<Validator>? = null
@@ -50,7 +52,8 @@ class Validation(private val baseContext: Context?) {
         validators.let {
             it?.forEach { validator ->
                 if (!validator.isValid()) {
-                    baseContext?.showNegativeAlerter(validator.message() ?: "")
+                    Toast.makeText(baseContext!!,validator.message(),Toast.LENGTH_SHORT).show()
+//                    baseContext?.showNegativeAlerter(validator.message() ?: "")
                     return false
                 }
             }

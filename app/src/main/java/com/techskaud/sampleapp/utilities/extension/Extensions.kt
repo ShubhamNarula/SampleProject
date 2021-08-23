@@ -1,5 +1,6 @@
 package com.wh.woohoo.utils.extensionFunction
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.techskaud.sampleapp.BaseApplication
+import com.techskaud.sampleapp.R
 import com.template.datastore.DATA_STORE_NAME
 
 /*Use to set recycler adapter view*/
@@ -81,3 +83,19 @@ fun ImageView.imageLoad(url: String, activity: Context) {
         .signature {(System.currentTimeMillis().toString()) }
         .into(this)
 }
+
+fun Context.sessionExpired() = try {
+
+    val aD = AlertDialog.Builder(this)
+    aD.setTitle(getString(R.string.session_expired))
+    aD.setCancelable(false)
+    aD.setPositiveButton(getString(R.string.ok)) { dialogInterface, i ->
+        /*
+        we can clear here sharedpreference data
+         }*/
+    }
+    aD.create()
+    aD.show()
+} catch (e: Exception) {
+    e.printStackTrace()
+}!!

@@ -13,4 +13,31 @@
     <string name="country_state_city">Country Name</string>
     <string name="submit">Submit</string>
     <string name="enter_first_name">Enter First Name.</string>
+    <string name="your_device_offline">You are offline.</string>
+    <string name="some_error_occured">Some error occurred!</string>
+    <string name="session_expired">Session Expired!</string>
+    <string name="ok">Ok</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="let_s_sign_you_in">Let’s Sign You In</string>
+    <string name="welcome_back_you_ve_been_missed">Welcome back, you’ve been missed</string>
+    <string name="your_email_phone_no">"Your Email or Phone number"</string>
+    <string name="password">Password</string>
+    <string name="signin">Sign In</string>
+    <string name="or">OR</string>
+    <string name="don_apos_t_have_an_account_sign_up">Don\'t have an account?<font color='#56B1F6'> Sign Up</font></string>
+    <string name="getting_started">Getting Started</string>
+    <string name="create_an_account_to_continue">Create an account to continue</string>
+    <string name="your_phone_no">Your Phone</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="enter_email">Please enter email.</string>
+    <string name="enter_valid_email">Please enter valid email address.</string>
+    <string name="enter_phone">Enter your phone number.</string>
+    <string name="enter_valid_phone">Please enter valid phone number.</string>
+    <string name="enter_password">Please enter password.</string>
+    <string name="strong_password">Please create strong password</string>
+    <string name="enter_confirm_password">Please enter confirm password.</string>
+    <string name="password_does_not_match">Password does not mtach.</string>
+
 </resources>

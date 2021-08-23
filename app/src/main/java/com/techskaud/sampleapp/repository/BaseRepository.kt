@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.flow
 import java.lang.Exception
 
 class BaseRepository
-constructor(private val apiServiceImpl: ApiInterface,
+constructor(private val apiServiceImpl: ApiInterface
 
 ) {
     suspend fun getData(

@@ -1,7 +1,9 @@
-package com.apptunix.peng.model
+package com.techskaud.sampleapp.adapter
 
-abstract class AbstractModel {
+import android.os.Parcelable
 
-    var adapterPosition: Int = -1
-    var onItemClick: MyViewPagerAdapter.OnItemClick? = null
-}
+abstract class AbstractModel (
+
+    var adapterPosition: Int = -1,
+    var onItemClick: RecyclerAdapter.OnItemClick? = null
+):Parcelable

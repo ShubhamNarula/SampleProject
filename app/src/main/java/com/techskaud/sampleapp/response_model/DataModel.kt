@@ -2,28 +2,26 @@ package com.techskaud.sampleapp.response_model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.techskaud.sampleapp.adapter.AbstractModel
 
 
-data class DataModel (
-    val id : Int,
+data class DataModel(
+    val id: Int,
     val title:String,
-    val body:String
-        ): Parcelable {
+    val body: String?
+        ): AbstractModel() {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString().toString(),
-        parcel.readString().toString()
+        parcel.readString()
     ) {
-    }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
-        parcel.writeString(title)
-        parcel.writeString(body)
     }
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    override fun writeToParcel(dest: Parcel?, flags: Int) {
     }
 
     companion object CREATOR : Parcelable.Creator<DataModel> {

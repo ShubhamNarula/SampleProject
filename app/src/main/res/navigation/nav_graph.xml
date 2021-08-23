@@ -50,5 +50,21 @@
     <fragment
         android:id="@+id/userProfile"
         android:name="com.techskaud.sampleapp.fragment.user_profile.UserProfile"
-        android:label="UserProfile" />
+        android:label="UserProfile" >
+        <action
+            android:id="@+id/action_userProfile_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.techskaud.sampleapp.fragment.login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.techskaud.sampleapp.fragment.sign_in.SignUpFragment"
+        android:label="SignInFragment" />
 </navigation>

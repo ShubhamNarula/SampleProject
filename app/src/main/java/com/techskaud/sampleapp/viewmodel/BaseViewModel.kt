@@ -1,8 +1,11 @@
 package com.techskaud.sampleapp.viewmodel
 
 import android.content.Context
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.hilt.Assisted
 import androidx.lifecycle.*
+import com.bumptech.glide.Glide
 import com.techskaud.sampleapp.datastore.DataStoreClass
 import com.techskaud.sampleapp.repository.BaseRepository
 import com.techskaud.sampleapp.response_model.AlbumModel
@@ -67,6 +70,15 @@ constructor(private val baseRepo: BaseRepository,
         }
     }
 
+    //Some code
+    companion object {
+
+        @JvmStatic
+        @BindingAdapter("imageUrl")
+        fun loadImage(view: ImageView, url: String) { // This methods should not have any return type, = declaration would make it return that object declaration.
+            Glide.with(view.context).load("https://picsum.photos/id/237/200/300").into(view)
+        }
+    }
 
 }
 
