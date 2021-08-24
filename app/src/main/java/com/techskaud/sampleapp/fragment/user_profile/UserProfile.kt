@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import com.example.woohoo.base.BaseFragment
 import com.techskaud.sampleapp.R
+import com.techskaud.sampleapp.response_model.SignUpModel
 import com.techskaud.sampleapp.utilities.Constants
 import com.techskaud.sampleapp.utilities.ImageUtils
 import com.techskaud.sampleapp.utilities.Utils
@@ -20,11 +21,13 @@ import com.template.permissionsutil.PermissionsUtil.arePermissionsGranted
 import com.template.permissionsutil.PermissionsUtil.requestFragmentPermission
 import com.template.validations.Validation
 import com.wh.woohoo.utils.extensionFunction.loadImg
-import com.wh.woohoo.utils.extensionFunction.navigateWithId
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.userprofile_fragment.*
 
+@AndroidEntryPoint
 class UserProfile : BaseFragment(), View.OnClickListener {
-
+    var userdata : SignUpModel?=null
+    lateinit var tempImagePath :String
     override fun getLayoutID(): Int {
         return R.layout.userprofile_fragment
     }
@@ -37,7 +40,17 @@ class UserProfile : BaseFragment(), View.OnClickListener {
     }
      @RequiresApi(Build.VERSION_CODES.M)
      fun init(){
-         requireActivity().requestFragmentPermission(this@UserProfile,Constants.CAMERA_GALLERY_REQUEST)
+         arguments.let {
+             userdata = it?.getParcelable(Constants.DATA)
+         }
+         txt_phone_no.text=userdata?.phoneNumber
+         txt_email.text=userdata?.emailId
+         if (userdata?.countryName!=null&&userdata?.firstName!=null){
+             et_country_name.setText(userdata?.countryName)
+             et_first_name.setText(userdata?.firstName)
+             et_last_name.setText(userdata?.lastName)
+         }
+
      }
     fun clickEvents(){
         imgBack.setOnClickListener(this)
@@ -74,19 +87,22 @@ class UserProfile : BaseFragment(), View.OnClickListener {
 
                         }.show(it, "ImagePicker")
                     }
+                }else{
+                    requireActivity().requestFragmentPermission(this@UserProfile,Constants.CAMERA_GALLERY_REQUEST)
                 }
             }
             R.id.btSubmit ->{
-                requireView().navigateWithId(R.id.action_userProfile_to_loginFragment)
-               /*
-               ~~~~~~validation code
+
+               //~~~~~~validation code
                val validation = Validation.create(mActivity!!).apply {
                     isEmpty(et_first_name.text.toString(), context?.getString(R.string.enter_first_name) ?: "")
-
+                   isEmpty(et_last_name.text.toString(), context?.getString(R.string.enter_last_name) ?: "")
+                   isEmpty(et_country_name.text.toString(),context?.getString(R.string.enter_country_name) ?: "")
+                   isEmpty(tempImagePath,context?.getString(R.string.select_image) ?: "")
                 }
                 if (validation.isValid()) {
-                    //hit api
-                }*/
+
+                }
             }
         }
     }
@@ -98,11 +114,12 @@ class UserProfile : BaseFragment(), View.OnClickListener {
             if (userImage is Bitmap){
                 img_user.setImageBitmap(userImage)
                 val originalImagePath = Utils.bitmapToFile(userImage)
-
+                tempImagePath = originalImagePath
             }else{
-                img_user.loadImg(data?.data.toString(),mActivity!!)
-               val original =  ImageUtils.createCopyAndReturnRealPath(data?.data!!)
+                img_user.loadImg(data?.data.toString(),requireActivity())
+               val original = data?.data?.let { ImageUtils.createCopyAndReturnRealPath(it) }
                 Log.e("Fetch_Data", "data: $original", )
+                tempImagePath= original.toString()
             }
         }
     }

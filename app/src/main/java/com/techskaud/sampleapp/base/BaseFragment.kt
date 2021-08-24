@@ -101,7 +101,7 @@ abstract  class BaseFragment : Fragment() {
 
     fun showProgress() {
         if (mProgressDialog == null) {
-            mProgressDialog = Dialog(mActivity!!, android.R.style.Theme_Translucent)
+            mProgressDialog = mActivity?.let { Dialog(it, android.R.style.Theme_Translucent) }
             mProgressDialog?.window!!.requestFeature(Window.FEATURE_NO_TITLE)
             mProgressDialog?.setContentView(R.layout.loader_half__layout)
             mProgressDialog?.setCancelable(false)

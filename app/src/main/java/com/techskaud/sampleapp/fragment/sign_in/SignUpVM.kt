@@ -10,6 +10,7 @@ import com.techskaud.sampleapp.BaseApplication
 import com.techskaud.sampleapp.R
 import com.techskaud.sampleapp.repository.SignUpRepository
 import com.techskaud.sampleapp.response_model.SignUpModel
+import com.techskaud.sampleapp.utilities.Utils
 import com.techskaud.sampleapp.viewmodel.BaseViewModel
 import com.template.validations.Validation
 import com.wh.woohoo.utils.extensionFunction.navigateBack
@@ -23,16 +24,13 @@ public class SignUpVM @Inject constructor(
 ) : ViewModel() {
     val email by lazy { ObservableField("") }
     val phone by lazy { ObservableField("") }
-    val countryCode by lazy { ObservableField("91") }
     val password by lazy { ObservableField("") }
     val confirmPassword by lazy { ObservableField("") }
 
 
-    val getData : List<SignUpModel> = signUpRepository.getData
-
+    //this is used for data insert in background
     fun insert(signUpModel: SignUpModel) = viewModelScope.launch {
         signUpRepository.insert(signUpModel)
-        Log.e("Data","~~~~~~~~~~~${getData[0]}")
     }
 
 
@@ -67,8 +65,16 @@ public class SignUpVM @Inject constructor(
                         emailId = email.get(),
                         phoneNumber =phone.get(), password = password.get()
                     )
+                  val data = signUpRepository.getUserdata(phone.get().toString())
+                    if (data!=null) {
+                        if (data.phoneNumber == phone.get()) {
+                            return Utils.showToast("User Already Exist.")
+                        }
+                    }
 
-                     insert(signUpModel)
+                    insert(signUpModel)
+                    Utils.showToast("SignUp Successfully.")
+                    view.navigateBack()
                 }
             }
 

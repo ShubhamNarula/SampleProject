@@ -43,17 +43,16 @@
         android:id="@+id/photosFragment"
         android:name="com.techskaud.sampleapp.fragment.PhotosFragment"
         android:label="PhotosFragment" >
+
         <action
-            android:id="@+id/action_photosFragment_to_userProfile"
-            app:destination="@id/userProfile" />
+            android:id="@+id/action_photosFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfile"
         android:name="com.techskaud.sampleapp.fragment.user_profile.UserProfile"
         android:label="UserProfile" >
-        <action
-            android:id="@+id/action_userProfile_to_loginFragment"
-            app:destination="@id/loginFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -62,9 +61,19 @@
         <action
             android:id="@+id/action_loginFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userProfile"
+            app:destination="@id/userProfile" />
     </fragment>
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.techskaud.sampleapp.fragment.sign_in.SignUpFragment"
         android:label="SignInFragment" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.techskaud.sampleapp.fragment.forgot_pass.ForgotPasswordFragment"
+        android:label="ForgotPasswordFragment" />
 </navigation>

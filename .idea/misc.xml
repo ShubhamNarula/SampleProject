@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.26458333333333334" />
         <entry key="app/src/main/res/drawable/button_bg.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/drawable/ic_forgot.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_login.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/ic_signup.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/ic_user_default_img.xml" value="0.26510416666666664" />
@@ -14,9 +15,11 @@
         <entry key="app/src/main/res/layout/data_photos_frag.xml" value="0.5888157894736842" />
         <entry key="app/src/main/res/layout/detail_fragment.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/dialog_image_picker.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/forgot_pass_frag.xml" value="0.335" />
         <entry key="app/src/main/res/layout/ic_phone.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/item_view_data.xml" value="0.24895833333333334" />
-        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/sing_in_fragment.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/sing_up_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/userprofile_fragment.xml" value="0.24895833333333334" />

@@ -82,12 +82,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:drawableStart="@drawable/ic_mail"
+                    android:drawableStart="@drawable/ic_phone"
                     android:drawablePadding="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_regular"
-                    android:hint="@string/your_email"
-                    android:inputType="text"
-
+                    android:hint="@string/your_phone"
+                    android:inputType="number"
+                    android:text="@={vm.userPhone}"
                     android:textColor="@color/_acacac"
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -125,6 +125,7 @@
                     android:drawablePadding="@dimen/_10sdp"
                     android:fontFamily="@font/poppins_regular"
                     android:hint="@string/password"
+                    android:text="@={vm.userPass}"
                     android:inputType="textPassword"
                     android:textColor="@color/_acacac"
                     android:textSize="16sp" />
@@ -150,6 +151,7 @@
                 android:padding="@dimen/_5sdp"
                 android:text="@string/forgot_password"
                 android:textColor="@color/_7cb0e1"
+                android:onClick="@{vm.onClick}"
                 android:textAppearance="@style/P2"
                 app:layout_constraintBottom_toTopOf="@id/btSignIn"
                 app:layout_constraintEnd_toEndOf="@id/tvLetsSignIn"
@@ -168,6 +170,7 @@
                 android:padding="@dimen/_5sdp"
                 android:text="@string/signin"
                 android:textAllCaps="false"
+                android:onClick="@{vm.onClick}"
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:textStyle="normal"

@@ -8,8 +8,7 @@ import com.techskaud.sampleapp.utilities.Constants
 import kotlinx.android.synthetic.main.detail_fragment.*
 
 class DetailsViewFragment : BaseFragment() {
-    private lateinit var dataModel: DataModel
-
+    private  var dataModel: DataModel?=null
 
     override fun getLayoutID(): Int {
         return R.layout.detail_fragment
@@ -23,13 +22,12 @@ class DetailsViewFragment : BaseFragment() {
     }
     fun init(){
         arguments.let {
-            dataModel = it!!.getParcelable<DataModel>(Constants.DATA)!!
+            dataModel = it?.getParcelable<DataModel>(Constants.DATA)
         }
-
     }
     fun setData(){
-        txt_title.text = dataModel.title
-        txt_body.text = dataModel.body
+        txt_title.text = dataModel?.title
+        txt_body.text = dataModel?.body
     }
 
     fun clickEvents(){

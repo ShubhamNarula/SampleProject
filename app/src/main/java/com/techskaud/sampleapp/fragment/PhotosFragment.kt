@@ -56,6 +56,6 @@ class PhotosFragment : BaseFragment(),RecyclerAdapter.OnItemClick {
     }
 
     override fun onClick(position: Int, view: View) {
-        requireView().navigateWithId(R.id.action_photosFragment_to_userProfile)
+        requireView().navigateWithId(R.id.action_photosFragment_to_loginFragment)
     }
 }

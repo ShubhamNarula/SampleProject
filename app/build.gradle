@@ -84,7 +84,6 @@ dependencies {
 
     //data store
     implementation("androidx.datastore:datastore:1.0.0")
-//    implementation "androidx.datastore:datastore-preferences:1.0.0"
     implementation("androidx.datastore:datastore-preferences:1.0.0-beta01")
 
 
@@ -114,6 +113,9 @@ dependencies {
 
     // To use Kotlin annotation processing tool (kapt)
     kapt("androidx.room:room-compiler:$room_version")
+    def paging_version = "3.0.0-alpha03"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
 
 
 }

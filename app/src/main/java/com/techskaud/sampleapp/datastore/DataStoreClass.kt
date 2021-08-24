@@ -21,7 +21,6 @@ constructor(@ApplicationContext private val context: Context) {
         }
     }
 
-
     val readFromLocal : Flow<String> = context.dataStore.data
         .catch {
             if(this is Exception){
