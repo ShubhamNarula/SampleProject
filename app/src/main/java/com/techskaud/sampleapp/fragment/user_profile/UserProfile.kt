@@ -10,8 +10,11 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.viewModels
 import com.example.woohoo.base.BaseFragment
 import com.techskaud.sampleapp.R
+import com.techskaud.sampleapp.fragment.login.LoginVM
+import com.techskaud.sampleapp.repository.SignUpRepository
 import com.techskaud.sampleapp.response_model.SignUpModel
 import com.techskaud.sampleapp.utilities.Constants
 import com.techskaud.sampleapp.utilities.ImageUtils
@@ -28,6 +31,8 @@ import kotlinx.android.synthetic.main.userprofile_fragment.*
 class UserProfile : BaseFragment(), View.OnClickListener {
     var userdata : SignUpModel?=null
     lateinit var tempImagePath :String
+     val signUp: SignUpRepository by viewModels()
+
     override fun getLayoutID(): Int {
         return R.layout.userprofile_fragment
     }
@@ -49,6 +54,9 @@ class UserProfile : BaseFragment(), View.OnClickListener {
              et_country_name.setText(userdata?.countryName)
              et_first_name.setText(userdata?.firstName)
              et_last_name.setText(userdata?.lastName)
+             tempImagePath = userdata?.userImage.toString()
+             img_user.loadImg( userdata?.userImage.toString(),requireActivity())
+
          }
 
      }
@@ -98,10 +106,10 @@ class UserProfile : BaseFragment(), View.OnClickListener {
                     isEmpty(et_first_name.text.toString(), context?.getString(R.string.enter_first_name) ?: "")
                    isEmpty(et_last_name.text.toString(), context?.getString(R.string.enter_last_name) ?: "")
                    isEmpty(et_country_name.text.toString(),context?.getString(R.string.enter_country_name) ?: "")
-                   isEmpty(tempImagePath,context?.getString(R.string.select_image) ?: "")
+                   isEmpty(tempImagePath.toString(),context?.getString(R.string.select_image) ?: "")
                 }
                 if (validation.isValid()) {
-
+                        signUp.updateUserProfile(et_first_name.text.toString(),et_last_name.text.toString(),et_country_name.text.toString(),tempImagePath,txt_phone_no.text.toString())
                 }
             }
         }

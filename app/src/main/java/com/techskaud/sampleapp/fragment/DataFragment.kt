@@ -76,7 +76,6 @@ class DataFragment : BaseFragment(), RecyclerAdapter.OnItemClick {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = dataAdapter
         }
-
     }
 
     override fun onClick(position: Int,view:View) {

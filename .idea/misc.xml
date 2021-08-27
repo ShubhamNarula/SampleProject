@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/drawable/ic_login.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/ic_signup.xml" value="0.1405" />
         <entry key="app/src/main/res/drawable/ic_user_default_img.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/activity_ktor_sample.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/album_data.xml" value="0.1" />
         <entry key="app/src/main/res/layout/data_fragment.xml" value="0.1" />

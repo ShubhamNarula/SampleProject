@@ -29,7 +29,7 @@
         android:textStyle="bold"
         />
     <TextView
-        android:id="@+id/txt_body"
+        android:id="@+id/txtBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_body"
+        app:layout_constraintTop_toBottomOf="@id/txtBody"
         android:layout_marginTop="10dp"
         android:text="next"
         android:textStyle="bold"

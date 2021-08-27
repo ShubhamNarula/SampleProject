@@ -40,12 +40,13 @@ abstract  class BaseFragment : Fragment() {
     private var mContent: View? = null
 
 
-
     /**************************************  Fragment Lifecycle Methods  ************************************************************************************/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mActivity = activity as BaseActivity
+
     }
+
 
 
     private var rootView: View? = null

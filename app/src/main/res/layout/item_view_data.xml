@@ -28,20 +28,20 @@
 
 
         <TextView
-            android:id="@+id/txt_user_title"
+            android:id="@+id/txtUserTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text='@{recyclerData.title}'
             android:textColor="#ff6767"
             android:textSize="12sp"
             android:layout_marginTop="10dp"
-            app:layout_constraintBottom_toTopOf="@id/txt_body"
+            app:layout_constraintBottom_toTopOf="@id/txtBody"
             app:layout_constraintStart_toEndOf="@id/img_profile"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:id="@+id/txt_body"
+            android:id="@+id/txtBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text='@{recyclerData.body}'
@@ -50,7 +50,7 @@
             android:textStyle="normal"
             app:layout_constraintBottom_toBottomOf="@id/img_profile"
             app:layout_constraintStart_toEndOf="@id/img_profile"
-            app:layout_constraintTop_toBottomOf="@id/txt_user_title" />
+            app:layout_constraintTop_toBottomOf="@id/txtUserTitle" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@ class DetailsViewFragment : BaseFragment() {
     }
     fun setData(){
         txt_title.text = dataModel?.title
-        txt_body.text = dataModel?.body
+        txtBody.text = dataModel?.body
     }
 
     fun clickEvents(){

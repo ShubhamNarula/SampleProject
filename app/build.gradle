@@ -116,6 +116,10 @@ dependencies {
     def paging_version = "3.0.0-alpha03"
     implementation "androidx.paging:paging-runtime:$paging_version"
 
+    //ktor api request
+    implementation("io.ktor:ktor-client-android:$ktor_version")
+    implementation("io.ktor:ktor-client-gson:$ktor_version")
+
 
 
 }
